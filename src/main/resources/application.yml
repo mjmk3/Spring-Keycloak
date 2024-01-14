@@ -1,2 +1,15 @@
-{
-    }
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/Spring-Keycloac
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+server:
+  port: 8908
+
+jwt:
+  auth:
+    converter:
+      resource-id: spring-keycloak-rest-api
+      principle-attribute: preferred_username
